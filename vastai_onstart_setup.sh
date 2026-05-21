@@ -19,6 +19,12 @@ echo "SETUP_START $(date)"
 COMFY="/workspace/ComfyUI"
 VENV="/venv/main/bin/activate"
 
+# ── Step 0: ComfyUI update for LTX audio nodes ──
+echo "=== COMFY UPDATE ==="
+cd $COMFY
+wget -q -c 'https://raw.githubusercontent.com/Comfy-Org/ComfyUI/master/comfy_extras/nodes_lt_audio.py' -O comfy_extras/nodes_lt_audio.py
+echo "COMFY_UPDATED"
+
 # ── Step 1: Git clone custom nodes ──
 echo "=== NODES ==="
 mkdir -p $COMFY/custom_nodes
