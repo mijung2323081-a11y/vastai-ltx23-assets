@@ -36,10 +36,12 @@ git clone --depth 1 https://github.com/NVIDIAGameWorks/ComfyUI-RTX-Nodes &
 wait
 echo "NODES_CLONE_DONE"
 
-# ── Step 2: deno-custom-nodes (로컬 ZIP → base64 인라인) ──
-# 참고: ZIP 파일을 외부 URL에 올리거나 아래 base64 블록을 교체하세요.
-# 현재는 빈 디렉토리만 생성 (deno-custom-nodes ZIP 업로드 필요)
+# ── Step 2: deno-custom-nodes ──
+echo "=== DENO NODES ==="
+wget -q -c 'https://raw.githubusercontent.com/mijung2323081-a11y/vastai-ltx23-assets/main/deno-custom-nodes-local.zip' \
+  -O /workspace/deno-custom-nodes-local.zip
 mkdir -p $COMFY/custom_nodes/deno-custom-nodes
+unzip -q -o /workspace/deno-custom-nodes-local.zip -d $COMFY/custom_nodes/deno-custom-nodes
 echo "NODES_DONE"
 
 # ── Step 3: Pip install ──
